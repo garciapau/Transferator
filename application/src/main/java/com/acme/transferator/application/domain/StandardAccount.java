@@ -13,6 +13,16 @@ public class StandardAccount implements Account {
         return currentBalance;
     }
 
+    @Override
+    public void annotateTransferReceived(String senderId, String receiverId, String amount) {
+        this.currentBalance = this.currentBalance.add(new BigDecimal(amount));
+    }
+
+    @Override
+    public void annotateTransferSent(String senderId, String receiverId, String amount) {
+        this.currentBalance = this.currentBalance.subtract(new BigDecimal(amount));
+    }
+
     public static class Builder {
         private BigDecimal currentBalance;
 
