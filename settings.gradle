@@ -1,2 +1,3 @@
 rootProject.name = 'money-transfer'
+include 'application'
 
