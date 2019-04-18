@@ -1,5 +1,7 @@
 package com.acme.transferator.infra.rest;
 
+import com.acme.transferator.infra.rest.controller.AccountRestController;
+import com.acme.transferator.infra.rest.handler.RestExceptionHandler;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -15,7 +17,7 @@ public class AccountControllerTest {
     private MockMvc mockMvc;
 
     @InjectMocks
-    private AccountController accountController;
+    private AccountRestController accountController;
 
     @Before
     public void setUp() {

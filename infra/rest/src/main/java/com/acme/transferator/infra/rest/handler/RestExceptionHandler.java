@@ -1,4 +1,4 @@
-package com.acme.transferator.infra.rest;
+package com.acme.transferator.infra.rest.handler;
 
 import com.acme.transferator.infra.rest.model.ApiError;
 import org.springframework.core.Ordered;
