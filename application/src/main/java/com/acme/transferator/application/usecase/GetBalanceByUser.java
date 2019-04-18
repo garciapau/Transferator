@@ -15,7 +15,7 @@ public class GetBalanceByUser {
     public BigDecimal execute(String userId) throws UserNotFoundException {
         return userRepository
                 .findById(userId)
-                .orElseThrow(() -> new UserNotFoundException())
+                .orElseThrow(() -> new UserNotFoundException(userId))
                 .getAccount()
                 .getBalance();
     }

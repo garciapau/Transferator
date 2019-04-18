@@ -1,5 +1,6 @@
 package com.acme.transferator.infra.rest.handler;
 
+import com.acme.transferator.application.exception.NotEnoughFundsException;
 import com.acme.transferator.application.exception.UserNotFoundException;
 import com.acme.transferator.infra.rest.model.ApiError;
 import org.springframework.core.Ordered;
@@ -16,15 +17,22 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    // TODO handle business specific exceptions ...
-
     @ExceptionHandler(UserNotFoundException.class)
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     public ResponseEntity<ApiError> handleRestClientException(UserNotFoundException ex) {
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(buildApiErrorResponse("User not found"));
+                .body(buildApiErrorResponse(ex.getMessage()));
+    }
+
+    @ExceptionHandler(NotEnoughFundsException.class)
+    @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
+    public ResponseEntity<ApiError> handleRestClientException(NotEnoughFundsException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(buildApiErrorResponse(ex.getMessage()));
     }
 
     private ApiError buildApiErrorResponse(String message) {
