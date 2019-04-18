@@ -13,11 +13,11 @@ public class AddUser {
         this.userRepository = userRepository;
     }
 
-    public void execute(String userId) {
-        userRepository.save(new User.Builder()
+    public User execute(String userId, String initialAmount) {
+        return userRepository.save(new User.Builder()
                 .setIdentifier(userId)
                 .setAccount(new StandardAccount.Builder()
-                        .setCurrentBalance(new BigDecimal("0"))
+                        .setCurrentBalance(new BigDecimal(initialAmount))
                         .build())
                 .build());
     }

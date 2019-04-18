@@ -2,6 +2,7 @@ package com.acme.transferator.infra.rest.contract;
 
 import com.acme.transferator.application.exception.NotEnoughFundsException;
 import com.acme.transferator.application.exception.UserNotFoundException;
+import com.acme.transferator.infra.rest.contract.model.AddUserPostRequest;
 import com.acme.transferator.infra.rest.contract.model.TransferPostRequest;
 import com.acme.transferator.infra.rest.model.ApiError;
 import io.swagger.annotations.Api;
@@ -29,4 +30,10 @@ public interface AccountController {
             @ApiResponse(code = 409, message = "Sender does not have enough funds", response = ApiError.class)
     })
     ResponseEntity transferMoney(TransferPostRequest transferPostRequest) throws UserNotFoundException, NotEnoughFundsException;
+
+    @ApiOperation(value = "Add a new user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Created")
+    })
+    ResponseEntity addUser(AddUserPostRequest addUserPostRequest);
 }

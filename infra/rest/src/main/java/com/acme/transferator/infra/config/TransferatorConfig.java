@@ -1,6 +1,7 @@
 package com.acme.transferator.infra.config;
 
 import com.acme.transferator.application.repository.UserRepository;
+import com.acme.transferator.application.usecase.AddUser;
 import com.acme.transferator.application.usecase.GetBalanceByUser;
 import com.acme.transferator.application.usecase.TransferMoney;
 import com.acme.transferator.infra.repository.InMemoryUserRepository;
@@ -20,5 +21,12 @@ public class TransferatorConfig {
     }
 
     @Bean
-    TransferMoney getTransferMoney(UserRepository userRepository) { return new TransferMoney(userRepository); }
+    TransferMoney getTransferMoney(UserRepository userRepository) {
+        return new TransferMoney(userRepository);
+    }
+
+    @Bean
+    AddUser getAddUser(UserRepository userRepository) {
+        return new AddUser(userRepository);
+    }
 }
