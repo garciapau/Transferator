@@ -21,3 +21,23 @@ I've chosen Cucumber to define the tests for validating the use cases.
 `infra-rest`: Provides the Rest HTTP endpoint to access the service. It is based in SpringBoot and provides the contract
 definition using Swagger
 
+## How to test and execute
+
+### Test the service
+./gradlew clean test
+
+### Run the standalone Spring Boot service
+./gradlew clean bootRun
+
+### Run a docker image of the service
+`docker build -t transferator .`
+
+`docker run -p <PREFERED_PORT>:8080 transferator`
+
+replace the <PREFERED_PORT> by the port number you can to publish the service to.
+
+The service starts and you can access Swagger definition at:
+`http://localhost:8080/v2/api-docs`
+
+and Swagger UI at:
+`http://localhost:8080/swagger-ui.html#/`
