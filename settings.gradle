@@ -2,4 +2,6 @@ rootProject.name = 'money-transfer'
 include 'application'
 include 'infra:rest'
 findProject(':infra:rest')?.name = 'infra-rest'
+include 'infra:repository'
+findProject(':infra:repository')?.name = 'infra-repository'
 

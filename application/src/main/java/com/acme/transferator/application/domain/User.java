@@ -1,6 +1,10 @@
 package com.acme.transferator.application.domain;
 
 public class User {
+    public String getIdentifier() {
+        return identifier;
+    }
+
     private String identifier;
     private Account account;
 

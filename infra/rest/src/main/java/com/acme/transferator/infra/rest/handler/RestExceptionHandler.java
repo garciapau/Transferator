@@ -1,5 +1,6 @@
 package com.acme.transferator.infra.rest.handler;
 
+import com.acme.transferator.application.exception.UserNotFoundException;
 import com.acme.transferator.infra.rest.model.ApiError;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -17,13 +18,13 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     // TODO handle business specific exceptions ...
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(UserNotFoundException.class)
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
-    public ResponseEntity<ApiError> handleRestClientException(Exception ex) {
+    public ResponseEntity<ApiError> handleRestClientException(UserNotFoundException ex) {
         return ResponseEntity
-                .status(HttpStatus.SERVICE_UNAVAILABLE)
+                .status(HttpStatus.CONFLICT)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(buildApiErrorResponse("Error found"));
+                .body(buildApiErrorResponse("User not found"));
     }
 
     private ApiError buildApiErrorResponse(String message) {
