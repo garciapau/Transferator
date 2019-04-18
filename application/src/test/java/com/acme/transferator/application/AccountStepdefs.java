@@ -9,7 +9,6 @@ import org.junit.Assert;
 import java.math.BigDecimal;
 
 public class AccountStepdefs implements En {
-    private TransferService transferService;
     private User receiver;
     private User sender;
     private BigDecimal currentBalance;
@@ -34,7 +33,6 @@ public class AccountStepdefs implements En {
             receiver = new User.Builder().setIdentifier(userId).setAccount(account).build();
         });
         When("'(.*)' makes a money transfer to '(.*)' of '(.*)'$", (String senderId, String receiverId, String amount) -> {
-            // transferService.transferMoney(sender, receiver, amount);
             sender.getAccount().annotateTransferSent(senderId, receiverId, amount);
             receiver.getAccount().annotateTransferReceived(senderId, receiverId, amount);
         });
