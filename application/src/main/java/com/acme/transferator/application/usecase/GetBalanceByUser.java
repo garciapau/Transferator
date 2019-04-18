@@ -1,6 +1,6 @@
 package com.acme.transferator.application.usecase;
 
-import com.acme.transferator.application.UserRepository;
+import com.acme.transferator.application.repository.UserRepository;
 import com.acme.transferator.application.exception.UserNotFoundException;
 
 import java.math.BigDecimal;

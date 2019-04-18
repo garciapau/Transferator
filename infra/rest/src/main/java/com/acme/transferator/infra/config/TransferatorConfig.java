@@ -1,6 +1,6 @@
 package com.acme.transferator.infra.config;
 
-import com.acme.transferator.application.UserRepository;
+import com.acme.transferator.application.repository.UserRepository;
 import com.acme.transferator.application.usecase.GetBalanceByUser;
 import com.acme.transferator.infra.repository.InMemoryUserRepository;
 import org.springframework.context.annotation.Bean;

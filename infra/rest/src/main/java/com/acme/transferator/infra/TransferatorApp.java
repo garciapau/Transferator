@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan({
+        "com.acme.transferator.infra.config",
         "com.acme.transferator.infra.rest.controller",
         "com.acme.transferator.infra.rest.config",
         "com.acme.transferator.infra.rest.handler"})

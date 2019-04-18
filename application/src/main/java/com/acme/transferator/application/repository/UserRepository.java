@@ -1,4 +1,4 @@
-package com.acme.transferator.application;
+package com.acme.transferator.application.repository;
 
 import com.acme.transferator.application.domain.User;
 
