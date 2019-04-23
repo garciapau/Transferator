@@ -11,6 +11,7 @@ A specific user can only have one account in the system
 
 I'm leaving out the scope of this exercise:
 - Currencies, therefore there is a unique (implicit) currency
+- Operations history, although sounds mandatory to keep it in a real application, has been left out of the scope since there are not specific requirements for it.
 - Environment-specific configuration
 - Service cluster. I've been focusing on a single instance service
 - Constants and literals are defined in the same class where they are used
